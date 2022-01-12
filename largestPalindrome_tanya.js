@@ -8,7 +8,7 @@
 //  0. Obtain this file from https://github.com/ankur-cp/largest-palindrome-solution
 //  1. Rename this file, substituting "yourname" with your name
 //  2. Replace "yourname" with your name in the variable below
-exports.name = "yourname";
+exports.name = "tanya";
 //  3. Add your optimizations to the solution below
 //  4. Submit a pull request
 
@@ -16,7 +16,11 @@ exports.name = "yourname";
 isPalindrome = (num) => {
   // determine if input value matches it's reversed value (i.e. check if it's a palindrome!)
   strNum = num.toString();
-  return strNum === strNum.split("").reverse().join("");
+  reversedStr = '';
+  for (let i = strNum.length - 1; i >= 0; i--) {
+    reversedStr += strNum[i]
+  }
+  return strNum === reversedStr
 }
 
 
@@ -26,7 +30,7 @@ exports.getLargestPalindrome = (N) => {
 
   // iterate through range of multiplicands
   for (let i = 10 ** (N - 1); i < 10 ** N; i++) {
-      
+
     for (let j = 10 ** (N - 1); j < 10 ** N; j++) {
 
       // check if the product is a palindrome
@@ -34,7 +38,7 @@ exports.getLargestPalindrome = (N) => {
 
         // check if it's larger than our largest palindrome
         if (i * j > largestPalindrome) {
-                  
+
           // update largest palindrome
           largestPalindrome = i * j;
         }
